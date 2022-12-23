@@ -1,0 +1,138 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNT WR Rankings</title>
+    <link href="quiz.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="/img/StayHotLogo.jpg">
+</head>
+
+<body>
+
+    <div id="stayhot">
+        <h2>
+            WR Ranking Quiz
+        </h2>
+    </div>
+
+    <ol type="1" id="results">
+    </ol>
+    <div id="buffer">
+    </div>
+    <ol type="1" id="consensus">
+    </ol>
+    <div id="progress">
+        <div class="progress">
+
+            <div id="completion" style="width: 0%;">PROGRESS...</div>
+
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <div id="one" class="button" onclick="selected('one');">
+            <div class="image"></div>
+            <div class="text"></div>
+        </div>
+        <div id="two" class="button" onclick="selected('two');">
+            <div class="image"></div>
+            <div class="text"></div>
+        </div>
+    </div>
+
+    <script>
+        var names = ["Devonta Smith",
+        "AJ Brown",
+        "CeeDee Lamb",
+        "Terry Mclaurin",
+        "Justin Jefferson",
+        "Amon Ra St. Brown",
+        "Adam Thielen",
+        "Chris Godwin",
+        "Mike Evans",
+        "Chris Olave",
+        "Drake London",
+        "Deebo Samuel",
+        "D.K. Metcalf",
+        "Deandre Hopkins",
+        "Cooper Kupp",
+        "Stefon Diggs",
+        "Gabe Davis",
+        "Tyreek Hill",
+        "Jaylen Waddle",
+        "Garrett Wilson",
+        "Tee Higgins",
+        "Amari Cooper",
+        "George Pickens",
+        "Michael Pittman Jr.",
+        "Diontae Johnson",
+        "Christian Kirk",
+        "Keenan Allen",
+        "Mike Williams",
+        "Davante Adams",
+        "Jerry Jeudy",
+        ];
+
+        function alph(number) {
+            var baseChar = ("A").charCodeAt(0),
+                letters = "";
+
+            do {
+                number -= 1;
+                letters = String.fromCharCode(baseChar + (number % 26)) + letters;
+                number = (number / 26) >> 0; // quick `floor`
+            } while (number > 0);
+
+            return letters;
+        }
+
+        function listReal(name, image, k) {
+            this.name = name;
+            this.image = image;
+            this.k = k;
+        }
+
+        var iteration;
+        var players;
+        var list = [];
+
+        for (let i = 0; i < names.length; i++) {
+            iteration = "00";
+            year = "2022";
+
+            if (names[i] == "Jimmy Garoppolo" ||
+                names[i] == "Jameis Winston" ||
+                names[i] == "Andy Dalton") year = "2021";
+            else if (names[i] == "Dak Prescott" ||
+                names[i] == "Marcus Mariota" ||
+                names[i] == "Joe Burrow") iteration = "01";
+            else if (names[i] == "Daniel Jones") {
+                iteration = "05";
+                year = "2020"
+            } else if (names[i] == "Derek Carr" ||
+                names[i] == "Josh Allen" ||
+                names[i] == "Davis Mills") iteration = "02";
+            else if (names[i] == "Mac Jones") iteration = "05";
+            else if (names[i] == "Baker Mayfield") year = "2020";
+            else {
+                iteration = "00";
+                year = "2022";
+            }
+
+
+            players = new listReal(names[i], "https://www.pro-football-reference.com/req/20180910/images/headshots/" +
+                (names[i].substring(names[i].indexOf(" ") + 1, names[i].indexOf(" ") + 5) +
+                    names[i].substring(0, 2) + iteration + "_" + year + ".jpg"), alph(i + 1));
+                    console.log(players)
+            list.push(players);
+        }
+    </script>
+
+    <script src="./quiz.js"></script>
+
+</body>
+
+</html>

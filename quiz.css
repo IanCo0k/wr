@@ -1,0 +1,133 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: white;
+    background-color: #09ecfd;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+}
+
+#wrapper {
+    position: relative;
+    height: 85%;
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    display: inline-block;
+    box-sizing: border-box;
+    position: absolute;
+    font-size: 4vmin;
+    height: calc(85vmin - 136px);
+    min-height: calc(70% - 136px);
+    width: 48vmin;
+    margin: 0;
+    touch-action: manipulation;
+    cursor: pointer;
+    color: #ddd;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-repeat: no-repeat;
+    background-size: auto 44vmin;
+    animation-name: slide;
+    border-radius: 1rem;
+}
+
+.button .image {
+    width: calc(100% - 2vmin);
+    height: 62%;
+    margin: 1vmin;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    animation: 3s linear 1s slidein;
+}
+
+.button .text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(38% - 2vmin);
+    margin: 0 1vmin;
+    animation: 3s linear 1s slidein;
+}
+
+.button:nth-of-type(1) {
+    right: 51%;
+}
+
+.button:nth-of-type(2) {
+    left: 51%;
+}
+
+#adsp {
+    position: absolute;
+    bottom: 0;
+    height: 116px;
+    width: 100%;
+    left: 50%;
+    padding: 10px;
+    transform: translateX(-50%);
+    overflow: hidden;
+}
+
+#adsp iframe {
+    border: none;
+    overflow: hidden;
+}
+
+.progress {
+    max-width: calc(80% - 3vh);
+    min-width: 50%;
+    height: 4vh;
+    margin: auto;
+    background: #09ecfd;
+    text-align: left;
+    font-size: 3vh;
+    color: black;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#completion {
+    height: 100%;
+    width: 0%;
+    background: #f3ef34;
+}
+
+ol {
+    width: calc(85% - 2vh);
+    text-align: left;
+    margin-left: calc(12% - 2vh);
+    margin-right: calc(15% - 2vh);
+    column-count: 2;
+    column-gap: calc(15% - 2vh);
+}
+
+header {
+    color: #a81909;
+}
+
+#stayhotpic {
+    width: 100%;
+    min-height: 1vmin;
+    max-height: 21vmin;
+    object-fit: cover;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+button {
+    background-color: #09ecfd;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
